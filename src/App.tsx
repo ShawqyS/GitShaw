@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container } from '@mantine/core';
+import Header from './Header';
+import ChampionCard from './ChampionCard';
 
-function App() {
-  const [count, setCount] = useState(0)
+const champions = [
+  { name: 'Ahri', title: 'The Nine-Tailed Fox', imageUrl: 'path_to_ahri_image.jpg' },
+  { name: 'Aatrox', title: 'The Darkin Blade', imageUrl: 'path_to_aatrox_image.jpg' },
+];
 
+function HomePage() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Container size="lg" style={{ marginTop: 40 }}>
+      <Header />
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {champions.map((champion) => (
+          <ChampionCard key={champion.name} {...champion} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Container>
+  );
 }
 
-export default App
+export default HomePage;
