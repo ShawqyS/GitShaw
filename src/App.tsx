@@ -1,22 +1,25 @@
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import HomePage from './Home';
+import ChampionsPage from './ChampionsPage';
+import LorePage from './LorePage';
 import { Container } from '@mantine/core';
-import Header from './Header';
-import ChampionCard from './ChampionCard';
-
-const champions = [
-  { name: 'Ahri', title: 'The Nine-Tailed Fox', imageUrl: 'path_to_ahri_image.jpg' },
-  { name: 'Aatrox', title: 'The Darkin Blade', imageUrl: 'path_to_aatrox_image.jpg' },
-];
 
 function App() {
   return (
-    <Container size="lg" style={{ marginTop: 40 }}>
-      <Header />
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {champions.map((champion) => (
-          <ChampionCard key={champion.name} {...champion} />
-        ))}
-      </div>
-    </Container>
+    <Router>
+      <Container size="lg" style={{ marginTop: 40 }}>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/champions" style={{ marginLeft: 20 }}>Champions</Link>
+          <Link to="/lore" style={{ marginLeft: 20 }}>Lore</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/champions" element={<ChampionsPage />} />
+          <Route path="/lore" element={<LorePage />} />
+        </Routes>
+      </Container>
+    </Router>
   );
 }
 
