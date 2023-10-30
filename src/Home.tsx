@@ -7,7 +7,7 @@ const champions = [
   { name: 'Aatrox', title: 'The Darkin Blade', imageUrl: 'path_to_aatrox_image.jpg' },
 ];
 
-function App() {
+function HomePage() {
   return (
     <Container size="lg" style={{ marginTop: 40 }}>
       <Header />
@@ -20,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
