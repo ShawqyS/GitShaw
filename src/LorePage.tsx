@@ -1,40 +1,33 @@
-import React, { useState, ChangeEvent } from 'react';
-import { Container, Accordion, TextInput } from '@mantine/core';
+import React, { useState } from 'react';
+import { Box, Input } from '@chakra-ui/react';
+import { Collapse } from 'antd';
+
+const { Panel } = Collapse;
 
 const lores = [
-    { title: 'The Darkin War', content: 'The Darkin are stated to be a collection of sentient weapons by Eduard Santangelo, with Aatrox, Rhaast, and Varus being the only known remaining Darkin.' },
-    { title: 'The Void', content: 'The Void is a dark and terrifying place, an abyss from which unspeakable horrors emerge to destroy the very fabric of the universe.' },
+  // Sample data for lores
+  { title: 'The Story of Ahri', content: 'Ahri is a vastaya who can reshape magic into orbs of raw energy...' },
+  // ... add more lores as needed
 ];
 
 function LorePage() {
   const [search, setSearch] = useState('');
 
-  const filteredLores = lores.filter(lore => lore.title.toLowerCase().includes(search.toLowerCase()));
-  const [openItem, setOpenItem] = useState<string | null>(null);
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const handleAccordionChange = (value: string | null) => {
-    // Handle accordion item changes here
-    setOpenItem(value);
-  };
-
   return (
-    <Container size="lg" style={{ marginTop: 40 }}>
-      <div style={{ marginBottom: 40 }}>
-        <TextInput placeholder="Search lore..." value={search} onChange={handleInputChange} />
-      </div>
-
-      <Accordion value={openItem} onChange={handleAccordionChange}>
-        {filteredLores.map((lore, index) => (
-          <Accordion.Item title={lore.title} key={index} value={lore.title}>
+    <Box p={4}>
+      <Input placeholder="Search lore..." value={search} onChange={handleInputChange} size="lg" />
+      <Collapse style={{ marginTop: '20px' }}>
+        {lores.map((lore, index) => (
+          <Panel header={lore.title} key={index}>
             {lore.content}
-          </Accordion.Item>
+          </Panel>
         ))}
-      </Accordion>
-    </Container>
+      </Collapse>
+    </Box>
   );
 }
 

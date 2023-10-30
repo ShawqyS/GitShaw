@@ -10,9 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@mantine/core": "^7.1.7",
     "@mantine/hooks": "^7.1.7",
     "@mantine/notifications": "^7.1.7",
+    "@mui/material": "^5.14.15",
+    "antd": "^5.10.2",
+    "evergreen-ui": "^7.1.9",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0"
