@@ -1,9 +1,32 @@
-import React from 'react';
-import { Container, Typography, Paper, Grid, Card, CardMedia, CardContent } from '@mui/material';
+import { Container, Typography, Paper, Grid, CardMedia } from '@mui/material';
 import { Button } from 'antd';
+import LatestNewsCard from './Newscard';
 
 function HomePage() {
+  const newsItems = [
+    {
+      title: "News Title 1",
+      description: "Description for news item 1...",
+      imageUrl: "/images/news_image_1.jpg" // Replace with the actual path to your news images
+    },
+    {
+      title: "News Title 2",
+      description: "Description for news item 2...",
+      imageUrl: "/images/news_image_2.jpg"
+    },
+    {
+      title: "News Title 3",
+      description: "Description for news item 3...",
+      imageUrl: "/images/news_image_3.jpg"
+    },
+    {
+      title: "News Title 4",
+      description: "Description for news item 4...",
+      imageUrl: "/images/news_image_4.jpg"
+    }
+  ];
   return (
+    
     <Container style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Typography variant="h2" align="center" gutterBottom>
         Welcome to the League of Legends Universe
@@ -38,23 +61,15 @@ function HomePage() {
         Latest News
       </Typography>
       <Grid container spacing={3}>
-        {/* Sample news item */}
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardMedia
-              component="img"
-              image="./src/assets/ahri.jpg" // Replace with the actual path or URL to the news image
-              alt="News Title"
+        {newsItems.map((newsItem, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <LatestNewsCard
+              title={newsItem.title}
+              description={newsItem.description}
+              imageUrl={newsItem.imageUrl}
             />
-            <CardContent>
-              <Typography variant="h6">News Title</Typography>
-              <Typography variant="body2">
-                Brief description of the news. Read about the latest updates, events, and more...
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        {/* Add more news items as needed */}
+          </Grid>
+        ))}
       </Grid>
 
       {/* Join the Battle */}
