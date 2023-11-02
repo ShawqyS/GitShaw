@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Input } from '@chakra-ui/react';
+import { Box, Input, useColorModeValue } from '@chakra-ui/react';
 import { Collapse } from 'antd';
 import './App.css'; // Make sure to import App.css
 
@@ -37,6 +37,9 @@ function LorePage() {
     lore.title.toLowerCase().includes(search.toLowerCase())
   );
 
+  const bg = useColorModeValue('white', 'gray.800');
+  const color = useColorModeValue('gray.800', 'white');
+
   return (
     <div className="lore-page">
       <Box className="search-box">
@@ -47,10 +50,10 @@ function LorePage() {
           onChange={handleInputChange}
         />
       </Box>
-      <Collapse className="lore-collapse">
+      <Collapse className="lore-collapse" bordered={false} defaultActiveKey={['0']}>
         {filteredLores.map((lore, index) => (
-          <Panel header={lore.title} key={index} className="lore-panel">
-            {lore.content}
+          <Panel header={lore.title} key={index} className="lore-panel" style={{ backgroundColor: bg, color }}>
+            <p>{lore.content}</p>
           </Panel>
         ))}
       </Collapse>

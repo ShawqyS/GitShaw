@@ -51,7 +51,7 @@ function HomePage() {
               Amidst the mists and coldest frosts, with barest wrists and stoutest boasts, she thrusts her fists against the posts...
               {/* Add Ahri's lore here */}
             </Typography>
-            <Button type="primary">Learn More</Button>
+            <Button type="primary" href='champions'>Learn More</Button>
           </Grid>
         </Grid>
       </Paper>
@@ -80,7 +80,7 @@ function HomePage() {
         <Typography variant="h6" paragraph>
           Dive into the world of Runeterra and experience epic battles, intriguing stories, and much more.
         </Typography>
-        <Button type="primary" size="large">Play Now</Button>
+        <Button type="primary" size="large" href='https://www.leagueoflegends.com'>Play Now</Button>
       </Paper>
     </Container>
   );

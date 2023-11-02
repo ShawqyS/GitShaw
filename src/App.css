@@ -116,7 +116,37 @@
   margin: auto;
 }
 
+/* Lore Page styles */
+.lore-page {
+  padding: 20px;
+  background-color: #121212; /* Light background for the lore page */
+}
 
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px; /* Limit the width of the search input */
+  margin: auto;
+  border: 2px solid #d4af37; /* Gold border for the input */
+  border-radius: 8px;
+}
+
+.lore-collapse .lore-panel {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #d4af37; /* Gold border for the panels */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.lore-collapse .lore-panel:hover {
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+/* Continue with existing styles... */
 
 
 
