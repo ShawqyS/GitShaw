@@ -20,12 +20,9 @@ const champions = [
   { name: 'Caitlyn', title: 'The Sheriff of Piltover', imageUrl: './src/assets/caitlyn.jpg' },
   { name: 'Camille', title: 'The Steel Shadow', imageUrl: './src/assets/camille.jpg' },
   { name: 'Cassiopeia', title: 'The Serpent’s Embrace', imageUrl: './src/assets/cassiopeia.jpg' },
-  { name: 'Cho’Gath', title: 'The Terror of the Void', imageUrl: './src/assets/chogath.jpg' },
-  { name: 'Corki', title: 'The Daring Bombardier', imageUrl: './src/assets/corki.jpg' },
-  { name: 'Darius', title: 'The Hand of Noxus', imageUrl: './src/assets/darius.jpg' },
-  { name: 'Diana', title: 'Scorn of the Moon', imageUrl: './src/assets/diana.jpg' },
+  { name: 'Cho’Gath', title: 'The Terror of the Void', imageUrl: './src/assets/cho.jpg' },
+  { name: 'Corki', title: 'The Daring Bombardier', imageUrl: './src/assets/gorki.jpg' },
 ];
-
 
 function ChampionsPage() {
   const [search, setSearch] = useState('');
@@ -33,6 +30,10 @@ function ChampionsPage() {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
+
+  const filteredChampions = champions.filter(champion =>
+    champion.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   // Apply the theme to the entire page
   const pageStyle = {
@@ -55,7 +56,7 @@ function ChampionsPage() {
           </Grid>
         </Paper>
         <Grid container spacing={3}>
-          {champions.map((champion) => (
+          {filteredChampions.map((champion) => (
             <Grid item xs={12} sm={6} md={4} key={champion.name}>
               <ChampionCard name={champion.name} title={champion.title} imageUrl={champion.imageUrl} />
             </Grid>

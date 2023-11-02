@@ -24,10 +24,7 @@ const lores = [
   { title: 'Cassiopeia, The Serpent’s Embrace', content: 'Cassiopeia is a deadly creature bent on manipulation and power. Her victims suffer from venom and betrayal, often seeing their demise before they realize her true nature.' },
   { title: 'Cho’Gath, The Terror of the Void', content: 'Cho’Gath is a creature from the Void, a place of absolute darkness and terror. He grows larger and more powerful with each life he consumes, and he hungers for the day he can swallow the world.' },
   { title: 'Corki, The Daring Bombardier', content: 'Corki, with his daring aerial maneuvers, strikes fear into the hearts of those who oppose him. His flying machine is always bristling with powerful weapons and bombs.' },
-  { title: 'Darius, The Hand of Noxus', content: 'Darius is Noxus’ most feared warrior, cutting down the empire’s enemies without a hint of mercy. His rise through the ranks was swift and bloody, and his name is whispered with fear and respect.' },
-  { title: 'Diana, Scorn of the Moon', content: 'Diana is a warrior with a dark secret. She is the embodiment of the moon’s power, with her blade reflecting its silvery light. She stands in opposition to her solar counterpart, Leona, and seeks to enforce the moon’s will over the lands.' },
 ];
-
 
 function LorePage() {
   const [search, setSearch] = useState('');
@@ -35,6 +32,10 @@ function LorePage() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
+
+  const filteredLores = lores.filter(lore =>
+    lore.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="lore-page">
@@ -47,7 +48,7 @@ function LorePage() {
         />
       </Box>
       <Collapse className="lore-collapse">
-        {lores.map((lore, index) => (
+        {filteredLores.map((lore, index) => (
           <Panel header={lore.title} key={index} className="lore-panel">
             {lore.content}
           </Panel>
