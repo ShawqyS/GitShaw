@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Grid, Typography, Paper } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { TextInput } from '@mantine/core';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ChampionCard from './ChampionCard'; // Assuming you have a ChampionCard component
+import ChampionCard from './ChampionCard'; 
 
 const champions = [
   { name: 'Ahri', title: 'The Nine-Tailed Fox', imageUrl: './src/assets/ahri.jpg' },
@@ -27,7 +27,6 @@ const champions = [
   { name: 'Corki', title: 'The Daring Bombardier', imageUrl: './src/assets/gorki.jpg' },
 ];
 
-
 function ChampionsPage() {
   const [search, setSearch] = useState('');
 
@@ -40,7 +39,7 @@ function ChampionsPage() {
   );
 
   // Settings for the slider
-  const settings = {
+  const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -50,39 +49,32 @@ function ChampionsPage() {
     autoplaySpeed: 2000,
     cssEase: "linear",
     centerMode: true,
-  };
-
-  // Apply the theme to the entire page
-  const pageStyle = {
-    backgroundColor: '#121212', // Dark background for the theme
-    color: '#ffffff', // Text color for better readability on dark bg
-    minHeight: '100vh', // Ensure it covers the full height
+    appendDots: dots => (
+      <div style={{ position: 'absolute', bottom: '10px', width: '100%' }}>
+        <ul style={{ margin: '0px' }}> {dots} </ul>
+      </div>
+    ),
   };
 
   return (
-    <div style={pageStyle}>
-      <Container maxWidth="md"> {/* Adjust the maxWidth to control the width */}
-        <Typography variant="h4" align="center" gutterBottom style={{ color: '#d4af37' }}>
-          Champions
-        </Typography>
-        <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', backgroundColor: '#1a1a1a', color: '#fff' }}>
+    <div className="page-style">
+      <Container maxWidth="md">
+        <div className="carousel-container">
           <Slider {...settings}>
             {champions.map((champion, index) => (
-              <div key={index}>
-                <img src={champion.imageUrl} alt={champion.name} style={{ width: '100%', height: 'auto' }} />
+              <div key={index} className="carousel-slide">
+                <div className="carousel-title">Champions</div> {/* Title on every slide */}
+                <img src={champion.imageUrl} alt={champion.name} className="carousel-image" />
               </div>
             ))}
           </Slider>
-          <Typography variant="h5" align="center" style={{ color: '#fff', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            Champions
-          </Typography>
-        </Paper>
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        </div>
+        <div className="search-container">
           <TextInput
             placeholder="Search champions..."
             value={search}
             onChange={handleSearchChange}
-            style={{ width: '50%', minWidth: '250px', margin: 'auto' }}
+            className="search-input"
           />
         </div>
         <Grid container spacing={3}>
