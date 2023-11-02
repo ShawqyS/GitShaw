@@ -1,10 +1,21 @@
 /* Header styles */
+/* Header styles */
 .header {
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 10px 0;
+  background-color: #1a1a1a; /* Dark background for the header */
+  color: #d4af37; /* Gold color for the text */
+  padding: 20px 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle shadow for depth */
 }
+
+.header-title {
+  font-size: 2.5rem; /* Larger font size for the title */
+  font-weight: bold;
+  text-transform: uppercase; /* Stylistic choice for uppercase letters */
+}
+
+/* Continue with existing styles... */
+
 
 /* Main content area */
 .main-content {
@@ -55,3 +66,34 @@
   color: white;
   cursor: pointer;
 }
+
+/* LorePage styles */
+.lore-page {
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  min-height: 100vh;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border-color: #d4af37;
+}
+
+.lore-collapse {
+  background-color: #333;
+  border-color: #d4af37;
+}
+
+.lore-panel {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Continue with existing styles... */

@@ -4,10 +4,28 @@ import { TextInput } from '@mantine/core';
 import ChampionCard from './ChampionCard'; // Assuming you have a ChampionCard component
 
 const champions = [
-  // Sample data for champions
   { name: 'Ahri', title: 'The Nine-Tailed Fox', imageUrl: './src/assets/ahri.jpg' },
-  // ... add more champions as needed
+  { name: 'Akali', title: 'The Rogue Assassin', imageUrl: './src/assets/akali.jpg' },
+  { name: 'Alistar', title: 'The Minotaur', imageUrl: './src/assets/alistar.jpg' },
+  { name: 'Amumu', title: 'The Sad Mummy', imageUrl: './src/assets/amumu.jpg' },
+  { name: 'Anivia', title: 'The Cryophoenix', imageUrl: './src/assets/anivia.jpg' },
+  { name: 'Annie', title: 'The Dark Child', imageUrl: './src/assets/annie.jpg' },
+  { name: 'Ashe', title: 'The Frost Archer', imageUrl: './src/assets/ashe.jpg' },
+  { name: 'Aurelion Sol', title: 'The Star Forger', imageUrl: './src/assets/aurelionsol.jpg' },
+  { name: 'Azir', title: 'The Emperor of the Sands', imageUrl: './src/assets/azir.jpg' },
+  { name: 'Bard', title: 'The Wandering Caretaker', imageUrl: './src/assets/bard.jpg' },
+  { name: 'Blitzcrank', title: 'The Great Steam Golem', imageUrl: './src/assets/blitzcrank.jpg' },
+  { name: 'Brand', title: 'The Burning Vengeance', imageUrl: './src/assets/brand.jpg' },
+  { name: 'Braum', title: 'The Heart of the Freljord', imageUrl: './src/assets/braum.jpg' },
+  { name: 'Caitlyn', title: 'The Sheriff of Piltover', imageUrl: './src/assets/caitlyn.jpg' },
+  { name: 'Camille', title: 'The Steel Shadow', imageUrl: './src/assets/camille.jpg' },
+  { name: 'Cassiopeia', title: 'The Serpent’s Embrace', imageUrl: './src/assets/cassiopeia.jpg' },
+  { name: 'Cho’Gath', title: 'The Terror of the Void', imageUrl: './src/assets/chogath.jpg' },
+  { name: 'Corki', title: 'The Daring Bombardier', imageUrl: './src/assets/corki.jpg' },
+  { name: 'Darius', title: 'The Hand of Noxus', imageUrl: './src/assets/darius.jpg' },
+  { name: 'Diana', title: 'Scorn of the Moon', imageUrl: './src/assets/diana.jpg' },
 ];
+
 
 function ChampionsPage() {
   const [search, setSearch] = useState('');

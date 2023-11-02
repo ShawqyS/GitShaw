@@ -10,13 +10,14 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 body {
   font-family: 'Merriweather', sans-serif;
-  background-color: var(--background-color);
-  color: #333;
+  background-color: #121212; /* Dark background for the theme */
+  color: #ffffff; /* Text color for better readability on dark bg */
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+  color: #d4af37; /* Gold color for headers */
 }
 
 a {
@@ -43,11 +44,28 @@ html, body, #root {
 :root {
   --primary-color: #1a1a1a; /* Dark color for headers and important elements */
   --secondary-color: #d4af37; /* Gold color for accents and buttons */
-  --background-color: #f4f6f8; /* Light background for contrast */
+  --background-color: #121212; /* Dark background for the theme */
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* Additional global styles for League of Legends theme */
+.paper {
+  background-color: #1a1a1a; /* Dark background for paper elements */
+  color: #fff; /* White text for better readability */
+}
+
+.button-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background-color: #b69a30; /* Slightly darker gold on hover */
+  border-color: #b69a30;
 }
