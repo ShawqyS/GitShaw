@@ -55,12 +55,3 @@
   color: white;
   cursor: pointer;
 }
-
-.button:hover {
-  opacity: 0.9;
-}
-
-input, select {
-  width: 100%;
-  box-sizing: border-box;
-}

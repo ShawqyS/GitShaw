@@ -16,26 +16,35 @@ function ChampionsPage() {
     setSearch(event.target.value);
   };
 
+  // Apply the theme to the entire page
+  const pageStyle = {
+    backgroundColor: '#121212', // Dark background for the theme
+    color: '#ffffff', // Text color for better readability on dark bg
+    minHeight: '100vh', // Ensure it covers the full height
+  };
+
   return (
-    <Container>
-      <Typography variant="h4" align="center" gutterBottom>
-        Champions
-      </Typography>
-      <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
-        <Grid container spacing={3} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <TextInput placeholder="Search champions..." value={search} onChange={handleSearchChange} style={{ width: '100%' }} />
+    <div style={pageStyle}>
+      <Container>
+        <Typography variant="h4" align="center" gutterBottom style={{ color: '#d4af37' }}>
+          Champions
+        </Typography>
+        <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', backgroundColor: '#1a1a1a', color: '#fff' }}>
+          <Grid container spacing={3} alignItems="center">
+            <Grid item xs={12} md={6}>
+              <TextInput placeholder="Search champions..." value={search} onChange={handleSearchChange} style={{ width: '100%' }} />
+            </Grid>
           </Grid>
+        </Paper>
+        <Grid container spacing={3}>
+          {champions.map((champion) => (
+            <Grid item xs={12} sm={6} md={4} key={champion.name}>
+              <ChampionCard name={champion.name} title={champion.title} imageUrl={champion.imageUrl} />
+            </Grid>
+          ))}
         </Grid>
-      </Paper>
-      <Grid container spacing={3}>
-        {champions.map((champion) => (
-          <Grid item xs={12} sm={6} md={4} key={champion.name}>
-            <ChampionCard name={champion.name} title={champion.title} imageUrl={champion.imageUrl} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 }
 

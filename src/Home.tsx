@@ -5,24 +5,24 @@ import LatestNewsCard from './Newscard';
 function HomePage() {
   const newsItems = [
     {
-      title: "News Title 1",
-      description: "Description for news item 1...",
-      imageUrl: "/images/news_image_1.jpg" // Replace with the actual path to your news images
+      title: "New Champion Release: Aether, the Skyblade",
+      description: "Aether, the Skyblade, soars into the Rift! With her ethereal wings and swift attacks, she's set to redefine the skies of Summoner's Rift.",
+      imageUrl: "/images/aether_release.jpg" // Replace with the actual path to your news images
     },
     {
-      title: "News Title 2",
-      description: "Description for news item 2...",
-      imageUrl: "/images/news_image_2.jpg"
+      title: "Preseason Update: Vision Rework",
+      description: "The upcoming preseason is bringing a major rework to vision in the game. Dive into the full update notes to learn more.",
+      imageUrl: "/images/vision_rework.jpg"
     },
     {
-      title: "News Title 3",
-      description: "Description for news item 3...",
-      imageUrl: "/images/news_image_3.jpg"
+      title: "Worlds 2023: The Battle for the Cup Continues",
+      description: "The quarterfinals are up next with teams from around the globe competing for the Summoner's Cup. Check out the schedule!",
+      imageUrl: "/images/worlds_quarterfinals.jpg"
     },
     {
-      title: "News Title 4",
-      description: "Description for news item 4...",
-      imageUrl: "/images/news_image_4.jpg"
+      title: "Patch 11.24 Highlights: Balancing the Battlefield",
+      description: "Patch 11.24 is live with targeted balance changes to champions and items. Read the full patch breakdown for all the details.",
+      imageUrl: "/images/patch_11_24.jpg"
     }
   ];
   return (
