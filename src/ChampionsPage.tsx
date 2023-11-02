@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Typography, Paper, Grid } from '@mui/material';
+import { Container, Grid, Typography, Paper } from '@mui/material';
 import { TextInput } from '@mantine/core';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import ChampionCard from './ChampionCard'; // Assuming you have a ChampionCard component
 
 const champions = [
@@ -24,6 +27,7 @@ const champions = [
   { name: 'Corki', title: 'The Daring Bombardier', imageUrl: './src/assets/gorki.jpg' },
 ];
 
+
 function ChampionsPage() {
   const [search, setSearch] = useState('');
 
@@ -35,6 +39,19 @@ function ChampionsPage() {
     champion.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Settings for the slider
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    centerMode: true,
+  };
+
   // Apply the theme to the entire page
   const pageStyle = {
     backgroundColor: '#121212', // Dark background for the theme
@@ -44,17 +61,30 @@ function ChampionsPage() {
 
   return (
     <div style={pageStyle}>
-      <Container>
+      <Container maxWidth="md"> {/* Adjust the maxWidth to control the width */}
         <Typography variant="h4" align="center" gutterBottom style={{ color: '#d4af37' }}>
           Champions
         </Typography>
         <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', backgroundColor: '#1a1a1a', color: '#fff' }}>
-          <Grid container spacing={3} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <TextInput placeholder="Search champions..." value={search} onChange={handleSearchChange} style={{ width: '100%' }} />
-            </Grid>
-          </Grid>
+          <Slider {...settings}>
+            {champions.map((champion, index) => (
+              <div key={index}>
+                <img src={champion.imageUrl} alt={champion.name} style={{ width: '100%', height: 'auto' }} />
+              </div>
+            ))}
+          </Slider>
+          <Typography variant="h5" align="center" style={{ color: '#fff', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+            Champions
+          </Typography>
         </Paper>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <TextInput
+            placeholder="Search champions..."
+            value={search}
+            onChange={handleSearchChange}
+            style={{ width: '50%', minWidth: '250px', margin: 'auto' }}
+          />
+        </div>
         <Grid container spacing={3}>
           {filteredChampions.map((champion) => (
             <Grid item xs={12} sm={6} md={4} key={champion.name}>
