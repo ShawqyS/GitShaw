@@ -59,6 +59,7 @@
   padding: 10px 15px;
   border-radius: 4px;
   margin: 5px;
+  color: #645e5e;
 }
 
 .button {
@@ -116,23 +117,38 @@
   margin: auto;
 }
 
-/* Lore Page styles */
 .lore-page {
-  padding: 20px;
-  background-color: #121212; /* Light background for the lore page */
+  text-align: center;
 }
 
-.search-box {
-  margin-bottom: 20px;
+.banner {
+  background-image: url('./assets/lore.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-title {
+  color: white; /* Choose a text color that stands out from your banner */
+  font-size: 3rem; /* Adjust the size as needed */
+}
+
+.search-container {
+  margin: 20px 0;
 }
 
 .search-input {
-  width: 100%;
-  max-width: 600px; /* Limit the width of the search input */
-  margin: auto;
-  border: 2px solid #d4af37; /* Gold border for the input */
-  border-radius: 8px;
+  width: 50%; /* Adjust the width as needed */
+  padding: 10px;
+  font-size: 1rem; /* Adjust the font size as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
+
+
 
 .lore-collapse .lore-panel {
   border-radius: 8px;
@@ -144,6 +160,33 @@
 
 .lore-collapse .lore-panel:hover {
   transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.lore-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.lore-card-header {
+  padding: 10px;
+  background-color: #645e5e;
+  cursor: pointer;
+}
+
+.lore-card-content {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.button_g {
+  background-color: #645e5e !important; /* Set your desired shade of grey here */
+  border-color: #645e5e !important; /* Set border color to match the background */
+}
+
+.button_g:hover {
+  background-color: darken(#645e5e, 5%) !important; /* Darken the button on hover */
+  border-color: darken(#645e5e, 5%) !important;
 }
 
 /* Continue with existing styles... */

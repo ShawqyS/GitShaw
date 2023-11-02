@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Input, useColorModeValue } from '@chakra-ui/react';
-import { Collapse } from 'antd';
 import './App.css'; // Make sure to import App.css
+import LoreCard from './LoreCard'; // Import the new LoreCard component
 
-const { Panel } = Collapse;
-
-const lores = [
+const loreData = [
   { title: 'The Story of Ahri', content: 'Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Amidst the mists and coldest frosts, she found the way to be free from her past.' },
   { title: 'The Tale of Akali', content: 'Akali is a rogue assassin who strikes from the shadows. She has renounced her clan’s traditional teachings to follow her own path—the way of the deadly kama, striking in silence and escaping without trace.' },
   { title: 'The Legend of Alistar', content: 'Once a mighty warrior from the Minotaur tribes, Alistar was captured and forced into the life of a gladiator. Now, he fights for freedom and justice, a symbol of the strength of will and body.' },
@@ -26,39 +23,40 @@ const lores = [
   { title: 'Corki, The Daring Bombardier', content: 'Corki, with his daring aerial maneuvers, strikes fear into the hearts of those who oppose him. His flying machine is always bristling with powerful weapons and bombs.' },
 ];
 
-function LorePage() {
+const LorePage: React.FC = () => {
   const [search, setSearch] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
-  const filteredLores = lores.filter(lore =>
+  const filteredLores = loreData.filter(lore =>
     lore.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const bg = useColorModeValue('white', 'gray.800');
-  const color = useColorModeValue('gray.800', 'white');
-
   return (
     <div className="lore-page">
-      <Box className="search-box">
-        <Input
+      <div className="banner">
+        <h1 className="banner-title">Lore</h1>
+      </div>
+      <div className="search-container">
+        <input
           className="search-input"
+          type="text"
           placeholder="Search lore..."
           value={search}
           onChange={handleInputChange}
         />
-      </Box>
-      <Collapse className="lore-collapse" bordered={false} defaultActiveKey={['0']}>
-        {filteredLores.map((lore, index) => (
-          <Panel header={lore.title} key={index} className="lore-panel" style={{ backgroundColor: bg, color }}>
-            <p>{lore.content}</p>
-          </Panel>
-        ))}
-      </Collapse>
+      </div>
+      {filteredLores.map((lore, index) => (
+        <LoreCard
+          key={index}
+          title={lore.title}
+          content={lore.content}
+        />
+      ))}
     </div>
   );
-}
+};
 
 export default LorePage;

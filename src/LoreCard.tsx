@@ -1,7 +1,5 @@
-import React from 'react';
-import { Collapse } from 'antd';
-
-const { Panel } = Collapse;
+import React, { useState } from 'react';
+import './App.css'; // Make sure to create a CSS file for LoreCard specific styles
 
 interface LoreCardProps {
   title: string;
@@ -9,10 +7,23 @@ interface LoreCardProps {
 }
 
 const LoreCard: React.FC<LoreCardProps> = ({ title, content }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <Panel header={title} key={title} className="lore-panel">
-      <div className="lore-content">{content}</div>
-    </Panel>
+    <div className="lore-card">
+      <div className="lore-card-header" onClick={toggleCollapse}>
+        {title}
+      </div>
+      {isOpen && (
+        <div className="lore-card-content">
+          <p dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
+      )}
+    </div>
   );
 };
 
