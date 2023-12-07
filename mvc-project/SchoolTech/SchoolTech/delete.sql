@@ -1,0 +1,14 @@
+DELETE FROM Afwezigheid;
+DELETE FROM Begeleiding;
+DELETE FROM Bijlage;
+DELETE FROM Foto;
+DELETE FROM FotoAlbum;
+DELETE FROM GebruikerNavorming;
+DELETE FROM GebruikerRol;
+DELETE FROM KlasStudiebezoek;
+DELETE FROM Klas;
+DELETE FROM Navorming;
+DELETE FROM Rol;
+DELETE FROM Studiebezoek;
+DELETE FROM Vak;
+DELETE FROM Gebruiker;

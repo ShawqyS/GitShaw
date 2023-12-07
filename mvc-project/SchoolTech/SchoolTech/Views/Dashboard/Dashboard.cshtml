@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<div>
+    <div style="display: flex; flex-wrap: wrap;">
+        <a href="@Url.Action("CRUD", "Afwezigheid")" class="btn btn-primary btn-sqr">Afwezigheden</a>
+        <a href="@Url.Action("CRUD", "Navorming")" class="btn btn-primary btn-sqr">Navormingen</a>
+        <a href="@Url.Action("CRUD", "Studiebezoek")" class="btn btn-primary btn-sqr">Studiebezoeken</a>
+        <a href="@Url.Action("Weergeven", "Fotoalbum")" class="btn btn-primary btn-sqr">Foto Albums</a>
+        <a href="@Url.Action("CRUD", "Gebruiker")" class="btn btn-primary btn-sqr">Gebruikers</a>
+        <a href="@Url.Action("CRUD", "Klas")" class="btn btn-primary btn-sqr">Klassen</a>
+        <a href="@Url.Action("CRUD", "Vak")" class="btn btn-primary btn-sqr">Vakken</a>
+    </div>
+</div>
