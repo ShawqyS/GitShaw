@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Navorming Formulier";
+}
+    <div class="container mt-5">
+        <h2 class="mb-4">Navorming Aanmaken</h2>
+
+        <form>
+            <div class="form-group col-md-6">
+                <label for="naamAanvrager">Naam Aanvrager:</label>
+                <input type="text" class="form-control" id="naamAanvrager" name="naamAanvrager">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="datumNavorming">Datum Navorming:</label>
+                <input type="date" class="form-control" id="datumNavorming" name="datumNavorming">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="startuur">Startuur:</label>
+                    <input type="time" class="form-control" id="startuur" name="startuur">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="einduur">Einduur:</label>
+                    <input type="time" class="form-control" id="einduur" name="einduur">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="vak">In het kader van welk vak:</label>
+                <input type="text" class="form-control" id="vak" name="vak">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="leerkrachten">Leerkrachten die meegaan:</label>
+                <input type="text" class="form-control" id="leerkrachten" name="leerkrachten">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="kostprijsNavorming">Kostprijs Navorming:</label>
+                <input type="text" class="form-control" id="kostprijsNavorming" name="kostprijsNavorming">
+            </div>
+
+            <div style="margin-top:15px;" class="form-group col-md-6">
+                <label for="bijlagen">Eventueel bijlagen (offertes):</label>
+                <input type="file" class="form-control-file" id="bijlagen" name="bijlagen" multiple>
+            </div>
+
+            <button style="margin-top:15px;" type="submit" class="btn btn-primary">Verstuur</button>
+        </form>
+    </div>

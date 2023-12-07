@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SchoolTech.Models.Klas">
+    <Position X="4" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAEAAAAAAAAAAAABAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Klas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="KlasStudiebezoeken" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.KlasStudiebezoek">
+    <Position X="4" Y="4" Width="2" />
+    <AssociationLine Name="Klas" Type="SchoolTech.Models.Klas">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.578" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAIAAAAAAAAAAAAAAAAAAAAAAAAEAABAAABAAAAAAAA=</HashCode>
+      <FileName>Models\KlasStudiebezoek.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Klas" />
+      <Property Name="Studiebezoek" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Studiebezoek">
+    <Position X="4" Y="6.25" Width="2" />
+    <AssociationLine Name="KlasStudiebezoeken" Type="SchoolTech.Models.KlasStudiebezoek">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.515" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Bijlagen" Type="SchoolTech.Models.Bijlage" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="6.769" />
+        <Point X="7.594" Y="6.769" />
+        <Point X="7.594" Y="6.488" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FotoAlbums" Type="SchoolTech.Models.FotoAlbum" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="7.417" />
+        <Point X="10.094" Y="7.417" />
+        <Point X="10.094" Y="6.43" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Aanvrager" Type="SchoolTech.Models.Gebruiker" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="9.744" />
+        <Point X="11.25" Y="9.744" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAAIAEEWAGAAAAkACAAAGACABAAARBkIgAAAFAAQAA=</HashCode>
+      <FileName>Models\Studiebezoek.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Vak" />
+      <Property Name="Aanvrager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="KlasStudiebezoeken" />
+      <Property Name="Bijlagen" />
+      <Property Name="FotoAlbums" />
+      <Property Name="Begeleiders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Vak">
+    <Position X="4" Y="12" Width="1.5" />
+    <AssociationLine Name="Studiebezoeken" Type="SchoolTech.Models.Studiebezoek">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.328" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAABAEAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Vak.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Studiebezoeken" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Bijlage">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <AssociationLine Name="Studiebezoek" Type="SchoolTech.Models.Studiebezoek" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="6.488" />
+        <Point X="8" Y="7.093" />
+        <Point X="6" Y="7.093" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAIAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Bijlage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Studiebezoek" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Foto">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAEAAACAAAgAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Foto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FotoAlbum" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.FotoAlbum">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Studiebezoek" Type="SchoolTech.Models.Studiebezoek" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="6.43" />
+        <Point X="10.5" Y="7.676" />
+        <Point X="6" Y="7.676" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAKAAAAAAAAAAAAAAAAABAAAgAACAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FotoAlbum.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Studiebezoek" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Fotos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Begeleiding">
+    <Position X="11.25" Y="7.5" Width="1.5" />
+    <AssociationLine Name="Gebruiker" Type="SchoolTech.Models.Gebruiker">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.058" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAgAAAAQAA=</HashCode>
+      <FileName>Models\Begeleiding.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Studiebezoek" />
+      <Property Name="Gebruiker" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Rol">
+    <Position X="11.25" Y="14.5" Width="1.5" />
+    <AssociationLine Name="GebruikerRollen" Type="SchoolTech.Models.GebruikerRol">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.321" Y="0.101" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Rol.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GebruikerRollen" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.GebruikerRol">
+    <Position X="11.25" Y="12.5" Width="1.5" />
+    <AssociationLine Name="Rol" Type="SchoolTech.Models.Rol">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.516" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Gebruiker" Type="SchoolTech.Models.Gebruiker" FixedToPoint="true">
+      <Path>
+        <Point X="11.438" Y="12.5" />
+        <Point X="11.438" Y="11.887" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.947" Y="0.117" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAgAAAAQBA=</HashCode>
+      <FileName>Models\GebruikerRol.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Rol" />
+      <Property Name="Gebruiker" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Gebruiker">
+    <Position X="11.25" Y="9.5" Width="1.5" />
+    <AssociationLine Name="BegeleidStudiebezoeken" Type="SchoolTech.Models.Begeleiding">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.776" Y="0.146" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="GebruikerRollen" Type="SchoolTech.Models.GebruikerRol" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="11.887" />
+        <Point X="12.5" Y="12.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.359" Y="0.018" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AangevraagdeNavormingen" Type="SchoolTech.Models.Navorming" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="11.57" />
+        <Point X="10.917" Y="11.57" />
+        <Point X="10.917" Y="14.625" />
+        <Point X="9.25" Y="14.625" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="-0.348" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="GebruikerNavormingen" Type="SchoolTech.Models.GebruikerNavorming" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="10.84" />
+        <Point X="9.619" Y="10.84" />
+        <Point X="9.619" Y="12.812" />
+        <Point X="9" Y="12.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="-0.305" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="AangevraagdeStudiebezoeken" Type="SchoolTech.Models.Studiebezoek" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="10.062" />
+        <Point X="6" Y="10.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.193" Y="-0.273" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAGQAgACgAAAAAAAAABEEAkAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\Gebruiker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="BegeleidStudiebezoeken" />
+      <Property Name="GebruikerRollen" />
+      <Property Name="Afwezigheden" />
+      <Property Name="AangevraagdeNavormingen" />
+      <Property Name="GebruikerNavormingen" />
+      <Property Name="AangevraagdeStudiebezoeken" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Afwezigheid">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAABAAAgAgAAAAQAA=</HashCode>
+      <FileName>Models\Afwezigheid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Gebruiker" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.Navorming">
+    <Position X="7.25" Y="14" Width="2" />
+    <AssociationLine Name="Aanvrager" Type="SchoolTech.Models.Gebruiker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="14.5" />
+        <Point X="10.687" Y="14.5" />
+        <Point X="10.687" Y="11.327" />
+        <Point X="11.25" Y="11.327" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GebruikerNavormingen" Type="SchoolTech.Models.GebruikerNavorming" FixedToPoint="true">
+      <Path>
+        <Point X="7.812" Y="14" />
+        <Point X="7.812" Y="13.238" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAUAAAAAgEQAAAEAgCAQACAQAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\Navorming.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Aanvrager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="GebruikerNavormingen" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolTech.Models.GebruikerNavorming">
+    <Position X="7" Y="11.75" Width="2" />
+    <AssociationLine Name="Navorming" Type="SchoolTech.Models.Navorming" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="13.238" />
+        <Point X="8.25" Y="14" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.025" Y="0.102" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Gebruiker" Type="SchoolTech.Models.Gebruiker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="12.562" />
+        <Point X="9.41" Y="12.562" />
+        <Point X="9.41" Y="10.657" />
+        <Point X="11.25" Y="10.657" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAIAAgAgAAQAA=</HashCode>
+      <FileName>Models\GebruikerNavorming.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Navorming" />
+      <Property Name="Gebruiker" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

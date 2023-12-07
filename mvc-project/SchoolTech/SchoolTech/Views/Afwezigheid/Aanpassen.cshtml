@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Afwezigheid Formulier";
+}
+<div class="container mt-5">
+    <h2 class="mb-4">Afwezigheid Aanpassen</h2>
+
+    <form>
+        <div class="form-group col-md-6">
+            <label for="gebruikerId">Naam:</label>
+            <select id="gebruikerId" name="gebruikerId" class="form-control">
+                <option value="bus">An</option>
+                <option value="tram">Jan</option>
+                <option value="trein">Bert</option>
+                <option value="teVoet">Bober</option>
+                <option value="fiets">Fien</option>
+                <option value="auto">Sophie</option>
+                <!-- Voeg andere opties toe indien nodig -->
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="startDatum">Start Datum:</label>
+            <input type="date" class="form-control" id="startDatum" name="startDatum">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="eindDatum">Eind Datum:</label>
+            <input type="date" class="form-control" id="eindDatum" name="eindDatum">
+        </div>
+
+        <button style="margin-top:15px;" type="submit" class="btn btn-primary">Verstuur</button>
+    </form>
+</div>
