@@ -18,7 +18,14 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<SchoolTechContext>();
+    .AddEntityFrameworkStores<SchoolTechContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/home/index"; // Zorg ervoor dat dit overeenkomt met uw login route
+    // Andere opties...
+});
 
 builder.Services.Configure<IdentityOptions>(options => 
 {

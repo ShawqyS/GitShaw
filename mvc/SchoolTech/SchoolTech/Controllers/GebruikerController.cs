@@ -1,15 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SchoolTech.Data.Repository;
 using SchoolTech.Data.UnitOfWork;
 using SchoolTech.Models;
 using SchoolTech.ViewModels;
+using System.Security.Claims;
 
 namespace SchoolTech.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class GebruikerController : Controller
     {
+        
+
         private readonly IUnitOfWork _uow;
 
         public GebruikerController(IUnitOfWork unitOfWork)
@@ -35,5 +39,7 @@ namespace SchoolTech.Controllers
         {
             return View();
         }
+
+        
     }
 }

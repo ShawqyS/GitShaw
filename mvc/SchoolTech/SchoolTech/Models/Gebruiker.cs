@@ -28,11 +28,12 @@ namespace SchoolTech.Models
         [Required]
         public string Gebruikersnaam { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Wachtwoord is required")]
+        [DataType(DataType.Password)]
         public string Wachtwoord { get; set; }
 
-        [Required]
-        [PersonalData]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; }
 
         [Required]
