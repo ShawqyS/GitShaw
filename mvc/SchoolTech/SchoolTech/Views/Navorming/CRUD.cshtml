@@ -1,4 +1,5 @@
-﻿@model SchoolTech.ViewModels.NavormingCRUDViewModel
+﻿@using Newtonsoft.Json
+@model SchoolTech.ViewModels.NavormingCRUDViewModel
 
 @{
 	ViewBag.Title = "Navorming Weergave";
@@ -36,7 +37,13 @@
                 -->
             @foreach (var navorming in Model.Navormingen)
             {
-                <tr data-naam="@(navorming.Aanvrager.Voornaam + " " + navorming.Aanvrager.Naam)" data-datum="@(navorming.Datum)" data-kostprijs="@("€" + navorming.Kostprijs)">
+                <tr data-naamAanvrager="@(navorming.Aanvrager.Voornaam + " " + navorming.Aanvrager.Naam)" data-datum="@(navorming.Datum)" data-startuur="@navorming.StartUur"
+                    data-einduur="@navorming.EindUur" data-reden="@navorming.Reden" data-kostprijs="@("€" + navorming.Kostprijs)" data-isGoedgekeurd="@(navorming.IsGoedgekeurdDir)"
+                    data-isAfgewezen="@navorming.isAfgewezen" data-opmerkingAfgewezen="@navorming.OpmerkingAfgewezen" data-isAfgewerkt="@navorming.IsAfgewerkt"
+                    data-gaanMee="@(JsonConvert.SerializeObject(navorming.GebruikerNavormingen.Select(gn => new
+                    {
+                        VolledigeNaam = gn.Gebruiker.VolledigeNaam
+                    }).ToList()))">
                     <td>@(navorming.Aanvrager.Voornaam + " " + navorming.Aanvrager.Naam)</td>
                     <td>@(navorming.Datum)</td>
                     <td>@(navorming.Kostprijs)</td>
@@ -59,9 +66,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Naam: <span id="modalNaam"></span><br>
+                    Naam: <span id="modalNaamAanvrager"></span><br>
                     Datum: <span id="modalDatum"></span><br>
-                    Kostprijs: <span id="modalKostprijs"></span>
+                    Startuur: <span id="modalStartuur"></span><br>
+                    Einduur: <span id="modalEinduur"></span><br>
+                    Reden: <span id="modalReden"></span><br>
+                    Kostprijs: <span id="modalKostprijs"></span><br>
+                    Is goedgekeurd: <span id="modalIsGoedgekeurd"></span><br>
+                    Is afgewezen: <span id="modalIsAfgewezen"></span><br>
+                    Opmerking afgewezen: <span id="modalOpmerkingAfgewezen"></span><br>
+                    Is afgewerkt: <span id="modalIsAfgewerkt"></span><br>
+                    Gaan mee: <span id="modalGaanMee"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
@@ -86,9 +101,40 @@
         document.querySelectorAll('.view-btn').forEach(button => {
             button.addEventListener('click', function () {
                 var row = this.closest('tr');
-                document.getElementById('modalNaam').textContent = row.getAttribute('data-naam');
+                document.getElementById('modalNaamAanvrager').textContent = row.getAttribute('data-naamAanvrager');
                 document.getElementById('modalDatum').textContent = row.getAttribute('data-datum');
+                document.getElementById('modalStartuur').textContent = row.getAttribute('data-startuur');
+                document.getElementById('modalEinduur').textContent = row.getAttribute('data-einduur');
+                document.getElementById('modalReden').textContent = row.getAttribute('data-reden');
                 document.getElementById('modalKostprijs').textContent = row.getAttribute('data-kostprijs');
+                document.getElementById('modalOpmerkingAfgewezen').textContent = row.getAttribute('data-opmerkingAfgewezen');
+                //document.getElementById('modalGaanMee').textContent = row.getAttribute('data-gaanMee');
+                //JSON.parse(console.log(row.getAttribute('data-gaanMee')));
+                //console.log(row.getAttribute('data-gaanMee'));
+                //console.log(JSON.parse(row.getAttribute('data-gaanMee')));
+                var gaanMee = JSON.parse(row.getAttribute('data-gaanMee'));
+                var gaanMeeString = "";
+                gaanMee.forEach(x => gaanMeeString += x.VolledigeNaam + ', ');
+                gaanMeeString = gaanMeeString.slice(0, -2);
+                document.getElementById('modalGaanMee').textContent = gaanMeeString;
+                
+                var isGoedgekeurd;
+                if (row.getAttribute('data-isGoedgekeurd') == "True") { isGoedgekeurd = "Ja" }
+                else if (row.getAttribute('data-isGoedgekeurd') == "False") { isGoedgekeurd = "Nee" }
+                else {isGoedgekeurd = "Niet bepaald" }
+                document.getElementById('modalIsGoedgekeurd').textContent = isGoedgekeurd;
+
+                var isAfgewezen;
+                if (row.getAttribute('data-isAfgewezen') == "True") { isAfgewezen = "Ja" }
+                else if (row.getAttribute('data-isAfgewezen') == "False") { isAfgewezen = "Nee" }
+                else { isAfgewezen = "Niet bepaald" }
+                document.getElementById('modalIsAfgewezen').textContent = isAfgewezen;
+
+                var isAfgewerkt;
+                if (row.getAttribute('data-isAfgewerkt') == "True") { isAfgewerkt = "Ja" }
+                else if (row.getAttribute('data-isAfgewerkt') == "False") { isAfgewerkt = "Nee" }
+                else { isAfgewerkt = "Niet bepaald" }
+                document.getElementById('modalIsAfgewerkt').textContent = isAfgewerkt;
             });
         });
     });

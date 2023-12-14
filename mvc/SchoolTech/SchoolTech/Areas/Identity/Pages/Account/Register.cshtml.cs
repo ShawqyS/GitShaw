@@ -71,20 +71,6 @@ namespace SchoolTech.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Voornaam")]
-            public string Voornaam { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Naam")]
-            public string Naam { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Gebruikersnaam")]
-            public string Gebruikersnaam { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -128,7 +114,6 @@ namespace SchoolTech.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

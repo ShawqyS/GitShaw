@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolTech.Controllers
 {
+    [Authorize(Roles = "Admin,Medewerker,Leerkracht,Coordinator")]
     public class AfwezigheidController : Controller
     {
         public IActionResult Toevoegen()

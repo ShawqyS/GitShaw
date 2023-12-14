@@ -6,7 +6,6 @@ INSERT INTO Gebruiker (Id, Naam, Voornaam, Initialen, Gebruikersnaam, Wachtwoord
 
 -- Inserts for Klas
 
-
 INSERT INTO Klas (Naam, Verwijderd) VALUES
 ('Klas 1', 0),
 ('Klas 2', 0);
@@ -33,9 +32,9 @@ INSERT INTO Afwezigheid (GebruikerId, StartDatum, EindDatum) VALUES
 
 -- Inserts for Navorming (zorg ervoor dat NaamAanvragerId bestaat in Gebruikers)
 
-INSERT INTO Navorming (GebruikerId, Datum, StartUur, EindUur, Reden, Kostprijs) VALUES
-(1, '2001-01-01', '01:00', '02:00', 'Reden1', 1.00),
-(2, '2002-02-02', '02:00', '03:00', 'Reden2', 2.00);
+INSERT INTO Navorming (GebruikerId, Datum, StartUur, EindUur, Reden, Kostprijs, IsGoedgekeurdDir, isAfgewezen, OpmerkingAfgewezen, IsAfgewerkt) VALUES
+(1, '2001-01-01', '01:00', '02:00', 'Reden1', 1.00, 1, 0, 'opmerking1', null),
+(2, '2002-02-02', '02:00', '03:00', 'Reden2', 2.00, null, 1, 'opmerking2', 0);
 
 -- Inserts for Studiebezoek (zorg ervoor dat NaamAanvragerId en VakId bestaan in respectievelijk Gebruikers en Vak)
 
@@ -61,6 +60,7 @@ INSERT INTO Foto (FotoAlbumId, NaamFoto, Thumbnail) VALUES
 
 INSERT INTO GebruikerNavorming (GebruikerId, NavormingId) VALUES
 (1, 1),
+(2, 1),
 (2, 2);
 
 INSERT INTO GebruikerRol (GebruikerId, RolId) VALUES

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolTech.Data.Repository;
 using SchoolTech.Data.UnitOfWork;
 using SchoolTech.Models;
@@ -6,6 +7,7 @@ using SchoolTech.ViewModels;
 
 namespace SchoolTech.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class GebruikerController : Controller
     {
         private readonly IUnitOfWork _uow;

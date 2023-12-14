@@ -16,10 +16,13 @@ builder.Services.AddRazorPages();
 // Registratie voor dependency injection van UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddDefaultIdentity<Gebruiker>().AddEntityFrameworkStores<SchoolTechContext>();
+builder.Services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<SchoolTechContext>();
 
-builder.Services.Configure<IdentityOptions>(options =>
+builder.Services.Configure<IdentityOptions>(options => 
 {
+    
     // Password settings.
     //options.Password.RequireDigit = true;
     //options.Password.RequireLowercase = true;
@@ -63,5 +66,40 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = 
+        scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] {"Gebruiker", "Admin", "Coordinator", "Directie", "Medewerker", "Leerkracht"  };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager =
+        scope.ServiceProvider.GetRequiredService<UserManager<Gebruiker>>();
+
+    string email = "admin@admin.com";
+    string password = "Test.1234";
+
+    if (await userManager.FindByEmailAsync(email) == null)
+    {
+        var user = new Gebruiker();
+        user.Gebruikersnaam = email;
+        user.Email = email;
+        user.EmailConfirmed = true;
+
+        await userManager.CreateAsync(user, password);
+
+        await userManager.AddToRoleAsync(user, "Admin");
+    }
+}
 
 app.Run();

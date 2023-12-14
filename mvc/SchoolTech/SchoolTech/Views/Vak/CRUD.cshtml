@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Gebruiker> SignInManager
+@inject UserManager<Gebruiker> UserManager
+@{
 	ViewBag.Title = "Vakken Weergave";
 }
 
@@ -20,9 +24,13 @@
                     <td>Wiskunde</td>
                     <!-- Voeg andere data velden toe -->
                     <td>
-                        <a href="@Url.Action("Aanpassen", "Vak")" class="btn btn-primary btn-sm">Bewerken</a>
                         <a href="#" class="btn btn-secondary btn-sm view-btn" data-toggle="modal" data-target="#viewModal">Bekijken</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <a href="@Url.Action("Aanpassen", "Vak")" class="btn btn-primary btn-sm">Bewerken</a>
+                        
                         <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
+                        }
                     </td>
                 </tr>
         </tbody>

@@ -20,9 +20,13 @@
                     <td>6B</td>
                     <!-- Voeg andere data velden toe -->
                     <td>
-                        <a href="@Url.Action("Aanpassen", "Klas")" class="btn btn-primary btn-sm">Bewerken</a>
                         <a href="#" class="btn btn-secondary btn-sm view-btn" data-toggle="modal" data-target="#viewModal">Bekijken</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <a href="@Url.Action("Aanpassen", "Klas")" class="btn btn-primary btn-sm">Bewerken</a>
+                        
                         <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
+                        }
                     </td>
                 </tr>
         </tbody>

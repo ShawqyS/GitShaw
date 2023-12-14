@@ -1,5 +1,8 @@
 ﻿@model SchoolTech.ViewModels.GebruikerCRUDViewModel
+@using Microsoft.AspNetCore.Identity
 
+@inject SignInManager<Gebruiker> SignInManager
+@inject UserManager<Gebruiker> UserManager
 ﻿@{
     ViewBag.Title = "Gebruiker Weergave";
 }
@@ -29,9 +32,13 @@
                     <td>@(gebruiker.Gebruikersnaam)</td>
                     <td>@(gebruiker.Email)</td>
                     <td>
-                        <a href="@Url.Action("Aanpassen", "Gebruikers")" class="btn btn-primary btn-sm">Bewerken</a>
                         <a href="#" class="btn btn-secondary btn-sm view-btn" data-toggle="modal" data-target="#viewModal">Bekijken</a>
-                        <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a href="@Url.Action("Aanpassen", "Gebruiker")" class="btn btn-primary btn-sm">Bewerken</a>
+
+                            <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
+                        }
                     </td>
                 </tr>
             }

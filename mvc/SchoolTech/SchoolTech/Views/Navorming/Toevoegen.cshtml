@@ -1,51 +1,64 @@
-﻿@{
+﻿@model SchoolTech.ViewModels.NavormingCreateViewModel
+@{
     ViewBag.Title = "Navorming Formulier";
 }
 <div class="container mt-5">
-    <h2 class="mb-4">Navorming Aanpassen</h2>
+    <h2 class="mb-4">Navorming Toevoegen</h2>
 
-    <form>
+    <form asp-action="Toevoegen">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <div class="form-group col-md-6">
-            <label for="naamAanvrager">Naam Aanvrager:</label>
-            <input type="text" class="form-control" id="naamAanvrager" name="naamAanvrager">
+            <label asp-for="GebruikerId">Aanvrager:</label>
+            <select asp-for="GebruikerId" class="form-control">
+                @foreach (var gebruiker in Model.Gebruikers)
+                {
+                    <option value="@gebruiker.Id">@gebruiker.Voornaam @gebruiker.Naam</option>
+                }
+            </select>
+            <span asp-validation-for="GebruikerId" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-6">
-            <label for="datumNavorming">Datum Navorming:</label>
-            <input type="date" class="form-control" id="datumNavorming" name="datumNavorming">
+            <label asp-for="Datum">Datum Navorming:</label>
+            <input asp-for="Datum" type="date" class="form-control" id="datum" name="datum">
+            <span asp-validation-for="Datum" class="text-danger"></span>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="startuur">Startuur:</label>
-                <input type="time" class="form-control" id="startuur" name="startuur">
+                <label asp-for="StartUur">Startuur:</label>
+                <input asp-for="StartUur" type="time" class="form-control" id="startuur" name="startuur">
+                <span asp-validation-for="StartUur" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
-                <label for="einduur">Einduur:</label>
-                <input type="time" class="form-control" id="einduur" name="einduur">
+                <label asp-for="EindUur">Einduur:</label>
+                <input asp-for="EindUur" type="time" class="form-control" id="einduur" name="einduur">
+                <span asp-validation-for="EindUur" class="text-danger"></span>
             </div>
         </div>
 
         <div class="form-group col-md-6">
-            <label for="vak">In het kader van welk vak:</label>
-            <input type="text" class="form-control" id="vak" name="vak">
+            <label asp-for="Kostprijs">Kostprijs Navorming:</label>
+            <input asp-for="Kostprijs" type="text" class="form-control" id="kostprijs" name="kostprijs">
+            <span asp-validation-for="EindUur" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-6">
-            <label for="leerkrachten">Leerkrachten die meegaan:</label>
-            <input type="text" class="form-control" id="leerkrachten" name="leerkrachten">
+            <label asp-for="Reden">Reden navorming:</label>
+            <input asp-for="Reden" type="text" class="form-control" id="reden" name="reden">
+            <span asp-validation-for="Reden" class="text-danger"></span>
         </div>
 
         <div class="form-group col-md-6">
-            <label for="kostprijsNavorming">Kostprijs Navorming:</label>
-            <input type="text" class="form-control" id="kostprijsNavorming" name="kostprijsNavorming">
+            <label for="Gebruikers">Gaat mee op navorming:</label>
+            <select asp-for="gebruikerNavormingen" asp-items="@(new SelectList(Model.Gebruikers, "Id", "VolledigeNaam"))" class="form-control" multiple>
+            </select>
+            <span asp-validation-for="Gebruikers" class="text-danger"></span>
         </div>
 
-        <div style="margin-top:15px;" class="form-group col-md-6">
-            <label for="bijlagen">Eventueel bijlagen (offertes):</label>
-            <input type="file" class="form-control-file" id="bijlagen" name="bijlagen" multiple>
-        </div>
 
-        <button style="margin-top:15px;" type="submit" class="btn btn-primary">Verstuur</button>
+        <input type="submit" value="Toevoegen" class="btn btn-primary" />
+        <a asp-action="CRUD" class="btn btn-primary">Back to List</a>
     </form>
 </div>

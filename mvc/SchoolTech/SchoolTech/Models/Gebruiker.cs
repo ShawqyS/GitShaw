@@ -17,7 +17,9 @@ namespace SchoolTech.Models
 
         [Required]
         [PersonalData]
-        public string Voornaam { get; set; }
+        public String Voornaam { get; set; }
+
+        public string VolledigeNaam => $"{Voornaam} {Naam}";
 
         [Required]
         [PersonalData]
