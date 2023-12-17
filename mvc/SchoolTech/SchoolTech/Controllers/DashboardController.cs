@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolTech.Controllers
 {
-    [Authorize(Roles = "Gebruiker")]
+    //[Authorize(Roles = "Gebruiker")]
     public class DashboardController : Controller
     {
         public IActionResult Dashboard()

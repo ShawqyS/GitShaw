@@ -11,30 +11,30 @@
 
 <div>
     <div style="display: flex; flex-wrap: wrap;">
-        @if (User.IsInRole("Admin,Medewerker,Leerkracht,Coordinator"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Medewerker") || User.IsInRole("Coordinator") || User.IsInRole("Leerkracht"))
         {
             <a href="@Url.Action("CRUD", "Afwezigheid")" class="btn btn-primary btn-sqr">Afwezigheden</a>
         }
-        @if (User.IsInRole("Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Directie") || User.IsInRole("Gebruiker") || User.IsInRole("Medewerker") || User.IsInRole("Coordinator") || User.IsInRole("Leerkracht"))
         {
             <a href="@Url.Action("CRUD", "Navorming")" class="btn btn-primary btn-sqr">Navormingen</a>
         }
-        @if (User.IsInRole("Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Directie") || User.IsInRole("Gebruiker") || User.IsInRole("Medewerker") || User.IsInRole("Coordinator") || User.IsInRole("Leerkracht"))
         {
             <a href="@Url.Action("CRUD", "Studiebezoek")" class="btn btn-primary btn-sqr">Studiebezoeken</a>
         }
-        @if (User.IsInRole("Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Directie") || User.IsInRole("Gebruiker") || User.IsInRole("Medewerker") || User.IsInRole("Coordinator") || User.IsInRole("Leerkracht"))
         {
             <a href="@Url.Action("Weergeven", "Fotoalbum")" class="btn btn-primary btn-sqr">Foto Albums</a>
         }
         @if (User.IsInRole("Admin")){
             <a href="@Url.Action("CRUD", "Gebruiker")" class="btn btn-primary btn-sqr">Gebruikers</a>
         }
-        @if (User.IsInRole("Admin,Coordinator"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Coordinator"))
         {
             <a href="@Url.Action("CRUD", "Klas")" class="btn btn-primary btn-sqr">Klassen</a>
         }
-        @if (User.IsInRole("Admin,Coordinator"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Coordinator"))
         {
             <a href="@Url.Action("CRUD", "Vak")" class="btn btn-primary btn-sqr">Vakken</a>
         }

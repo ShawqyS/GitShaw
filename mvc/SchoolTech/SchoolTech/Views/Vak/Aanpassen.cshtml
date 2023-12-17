@@ -1,15 +1,19 @@
-﻿@{
-    ViewBag.Title = "Vak Formulier";
+﻿@model SchoolTech.ViewModels.VakUpdateViewModel
+@{
+    ViewBag.Title = "Vak Aanpassen";
 }
+
 <div class="container mt-5">
     <h2 class="mb-4">Vak Aanpassen</h2>
 
-    <form>
+    <form asp-action="Aanpassen" method="post">
         <div class="form-group col-md-6">
-            <label for="naamVak">Naam Vak:</label>
-            <input type="text" class="form-control" id="naamVak" name="naamVak">
+            <label asp-for="Naam">Naam Vak:</label>
+            <input asp-for="Naam" class="form-control" />
+            <span asp-validation-for="Naam" class="text-danger"></span>
         </div>
 
         <button style="margin-top:15px;" type="submit" class="btn btn-primary">Verstuur</button>
+        <a asp-action="CRUD" style="margin-top:15px;" class="btn btn-primary">Terug naar vakkenlijst</a>
     </form>
 </div>

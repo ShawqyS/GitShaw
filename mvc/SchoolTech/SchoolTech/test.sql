@@ -1,1 +1,1 @@
-SELECT * FROM Gebruiker;
+SELECT * FROM Vak;

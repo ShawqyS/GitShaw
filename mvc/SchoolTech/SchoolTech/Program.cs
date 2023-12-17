@@ -23,7 +23,7 @@ builder.Services.AddDefaultIdentity<Gebruiker>(options => options.SignIn.Require
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/home/index"; // Zorg ervoor dat dit overeenkomt met uw login route
+    options.LoginPath = "/Identity/Account/Login"; // Zorg ervoor dat dit overeenkomt met uw login route
     // Andere opties...
 });
 
@@ -67,8 +67,16 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
 });
+
 
 app.MapControllerRoute(
     name: "default",
@@ -99,9 +107,15 @@ using (var scope = app.Services.CreateScope())
     if (await userManager.FindByEmailAsync(email) == null)
     {
         var user = new Gebruiker();
-        user.Gebruikersnaam = email;
+        user.UserName = email;
+        user.NormalizedUserName = email;
         user.Email = email;
         user.EmailConfirmed = true;
+        user.Initialen = email;
+        user.Gebruikersnaam = email;
+        user.Naam = email;
+        user.Voornaam = email;
+        user.Wachtwoord = email;
 
         await userManager.CreateAsync(user, password);
 

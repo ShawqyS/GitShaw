@@ -7,6 +7,7 @@ namespace SchoolTech.Data.UnitOfWork
     {
         IRepository<Gebruiker> GebruikerRepository { get; }
         IRepository<Navorming> NavormingRepository { get; }
+        IRepository<Vak> VakRepository { get; }
 
         public void SaveChanges();
     }

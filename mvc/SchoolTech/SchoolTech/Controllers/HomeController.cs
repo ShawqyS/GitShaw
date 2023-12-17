@@ -20,63 +20,6 @@ namespace SchoolTech.Controllers
             this.signInManager = signInManager;
             _logger = logger;
         }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Index()
-        {
-            Gebruiker model = new Gebruiker();
-            return View(model);
-        }
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Index(Gebruiker model)
-        {
-            ModelState.Remove("AangevraagdeNavormingen");
-            ModelState.Remove("GebruikerNavormingen");
-            ModelState.Remove("AangevraagdeStudiebezoeken");
-            ModelState.Remove("Naam");
-            ModelState.Remove("Voornaam");
-            ModelState.Remove("Initialen");
-            ModelState.Remove("Gebruikersnaam");
-            ModelState.Remove("BegeleidStudieBezoeken");
-            ModelState.Remove("GebruikerRollen");
-            ModelState.Remove("Afwezigheden");
-            if (ModelState.IsValid)
-            {
-                var user = await userManager.FindByEmailAsync(model.Email);
-                if (user != null && !user.EmailConfirmed)
-                {
-                    ModelState.AddModelError("message", "Email not confirmed yet");
-                    return View(model);
-
-                }
-                if (await userManager.CheckPasswordAsync(user, model.Wachtwoord) == false)
-                {
-                    ModelState.AddModelError("message", "Invalid credentials");
-                    return View(model);
-
-                }
-
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Wachtwoord, false, true);
-
-                if (result.Succeeded)
-                {
-                    await userManager.AddClaimAsync(user, new Claim("UserRole", "Gebruiker"));
-                    return RedirectToAction("Dashboard");
-                }
-                else if (result.IsLockedOut)
-                {
-                    return View("AccountLocked");
-                }
-                else
-                {
-                    ModelState.AddModelError("message", "Invalid login attempt");
-                    return View(model);
-                }
-            }
-            return View(model);
-        }
         //public async Task<IActionResult> Logout()
         //{
         // await signInManager.SignOutAsync();
@@ -97,6 +40,17 @@ namespace SchoolTech.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Index()
+        {
+            return RedirectToAction("Login", "Account", new { Area = "Identity" });
+        }
+
 
 
 

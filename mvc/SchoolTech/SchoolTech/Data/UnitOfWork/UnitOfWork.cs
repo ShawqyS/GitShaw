@@ -13,10 +13,12 @@ namespace SchoolTech.Data.UnitOfWork
 
             GebruikerRepository = new Repository<Gebruiker>(_context);
             NavormingRepository = new Repository<Navorming>(_context);
+            VakRepository = new Repository<Vak>(_context);
         }
 
         public IRepository<Gebruiker> GebruikerRepository { get; }
         public IRepository<Navorming> NavormingRepository { get; }
+        public IRepository<Vak> VakRepository { get; }
 
         public void SaveChanges()
         {

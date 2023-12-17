@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using SchoolTech.ViewModels;
 
+@model VakCRUDViewModel;
 @inject SignInManager<Gebruiker> SignInManager
 @inject UserManager<Gebruiker> UserManager
 @{
@@ -7,7 +9,7 @@
 }
 
 <div class="container mt-5">
-    <h2 class="mb-4">Gebruikers Overzicht</h2>
+    <h2 class="mb-4">Vakken Overzicht</h2>
 
     <a href="@Url.Action("Toevoegen", "Vak")" class="btn btn-success mb-3">Nieuw Vak Toevoegen</a>
 
@@ -20,19 +22,42 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-naam="Wiskunde">
-                    <td>Wiskunde</td>
-                    <!-- Voeg andere data velden toe -->
+            @foreach(var vak in Model.Vakken)
+            {
+                <tr data-naam="@(vak.Naam)">
+                    <td>@vak.Naam</td>
                     <td>
                         <a href="#" class="btn btn-secondary btn-sm view-btn" data-toggle="modal" data-target="#viewModal">Bekijken</a>
-                        @if (User.IsInRole("Admin"))
+                        @if (User.IsInRole("Admin") || User.IsInRole("Coordinator"))
                         {
-                        <a href="@Url.Action("Aanpassen", "Vak")" class="btn btn-primary btn-sm">Bewerken</a>
+                            <a asp-action="Aanpassen" asp-route-id="@vak.VakId" class="btn btn-primary btn-sm">Bewerken</a>
+                            <form style="display: inline;" class="justify-content-end" method="post" asp-action="Delete" asp-route-id="@vak.VakId" onsubmit="return confirm('Bent u zeker dat u deze navorming wilt verwijderen?');">
+                                <input type="submit" value="Verwijder" class="btn btn-danger btn-sm" />
+                            </form>
+                        }
+                        
+                    </td>
+                </tr>
+            }
+            <!--
+            <tr data-naam="Wiskunde">
+                
+                    <td>Wiskunde</td>
+                     Voeg andere data velden toe 
+                    <td>
+                        <a href="#" class="btn btn-secondary btn-sm view-btn" data-toggle="modal" data-target="#viewModal">Bekijken</a>
+                        if (User.IsInRole("Admin"))
+                        {
+                        <a href="Url.Action("Aanpassen", "Vak")" class="btn btn-primary btn-sm">Bewerken</a>
                         
                         <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
                         }
+                    <a href="Url.Action("Aanpassen", "Vak")" class="btn btn-primary btn-sm">Bewerken</a>
+                    <a href="" class="btn btn-danger btn-sm">Verwijderen</a>
                     </td>
-                </tr>
+                
+            </tr>
+            -->
         </tbody>
     </table>
     <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">

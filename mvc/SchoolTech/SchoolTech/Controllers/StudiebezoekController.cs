@@ -5,7 +5,7 @@ namespace SchoolTech.Controllers
 {
     public class StudiebezoekController : Controller
     {
-        //[Authorize(Roles = "Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht")]
+        [Authorize(Roles = "Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht")]
         public IActionResult Toevoegen()
         {
             return View();
