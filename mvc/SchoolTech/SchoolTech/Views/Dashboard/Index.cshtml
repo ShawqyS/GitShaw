@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+
+
+
+<div class="container">
+    <h2 class="text-center my-title">Dashboard</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Studieaanvragen</h5>
+                    <p class="card-text">@ViewBag.StudieaanvragenCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Navormingen</h5>
+                    <p class="card-text">@ViewBag.NavormingenCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Afwezigheden</h5>
+                    <p class="card-text">@ViewBag.AfwezigheidCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Gebruikers</h5>
+                    <p class="card-text">@ViewBag.GebruikersCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Klassen</h5>
+                    <p class="card-text">@ViewBag.FotoalbumCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 custom-border">
+                <div class="card-body">
+                    <h5 class="card-title">Vakken</h5>
+                    <p class="card-text">@ViewBag.VakCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

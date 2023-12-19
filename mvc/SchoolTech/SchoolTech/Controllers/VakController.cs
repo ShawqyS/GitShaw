@@ -34,12 +34,12 @@ namespace SchoolTech.Controllers
                     Verwijderd = false,
                 }) ;
                 _unitOfWork.SaveChanges();
-                return RedirectToAction("CRUD", "Vak");
+                return RedirectToAction("Index", "Vak");
             }
             VakCreateViewModel vm = new VakCreateViewModel();
             return View(vm);
         }
-        public async Task<IActionResult> CRUD()
+        public async Task<IActionResult> Index()
         {
             VakCRUDViewModel vakken = new VakCRUDViewModel();
             var vakList = await _unitOfWork.VakRepository.GetAllAsync();
@@ -67,7 +67,7 @@ namespace SchoolTech.Controllers
             {
                 bestaandeVak.Naam = HttpContext.Request.Form["Naam"];
                 _unitOfWork.SaveChanges();
-                return RedirectToAction("CRUD");
+                return RedirectToAction("Index");
             }
 
             return View(viewModel);
@@ -86,7 +86,7 @@ namespace SchoolTech.Controllers
             _unitOfWork.VakRepository.Delete(vak);
             _unitOfWork.SaveChanges();
 
-            return RedirectToAction("CRUD");
+            return RedirectToAction("Index");
         }
     }
 }

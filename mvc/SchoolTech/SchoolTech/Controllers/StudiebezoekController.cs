@@ -3,15 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolTech.Controllers
 {
+    [Authorize(Roles = "Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht")]
     public class StudiebezoekController : Controller
     {
-        [Authorize(Roles = "Gebruiker,Admin,Coordinator,Directie,Medewerker,Leerkracht")]
+        
         public IActionResult Toevoegen()
         {
             return View();
         }
 
-        public IActionResult CRUD()
+        public IActionResult Index()
         {
             return View();
         }

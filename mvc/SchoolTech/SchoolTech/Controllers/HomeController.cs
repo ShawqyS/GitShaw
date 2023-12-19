@@ -31,20 +31,12 @@ namespace SchoolTech.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         public IActionResult Afwezigheden()
         {
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
 
         public IActionResult Index()
         {
@@ -99,6 +91,7 @@ namespace SchoolTech.Controllers
                     var result = await userManager.CreateAsync(user, request.Wachtwoord);
                     if (result.Succeeded)
                     {
+                        await userManager.AddToRoleAsync(user, "Gebruiker");
                         return RedirectToAction("Index");
                     }
                     else

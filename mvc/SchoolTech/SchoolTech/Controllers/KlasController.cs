@@ -11,7 +11,7 @@ namespace SchoolTech.Controllers
             return View();
         }
 
-        public IActionResult CRUD()
+        public IActionResult Index()
         {
             return View();
         }

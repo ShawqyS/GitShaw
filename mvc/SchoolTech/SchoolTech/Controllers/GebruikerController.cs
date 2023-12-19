@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace SchoolTech.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class GebruikerController : Controller
     {
         
@@ -26,7 +26,7 @@ namespace SchoolTech.Controllers
             return View();
         }
 
-        public async Task<IActionResult> CRUD()
+        public async Task<IActionResult> Index()
         {
             GebruikerCRUDViewModel vm = new GebruikerCRUDViewModel();
             var gebruikers = await _uow.GebruikerRepository.GetAllAsync();

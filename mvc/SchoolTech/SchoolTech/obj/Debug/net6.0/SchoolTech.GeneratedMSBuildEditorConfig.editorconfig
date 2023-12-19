@@ -184,8 +184,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWZ3ZXppZ2hlaWRcVG9ldm9lZ2VuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Dashboard/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZC5jc2h0bWw=
+[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Fotoalbum/Bewerken.cshtml]
@@ -208,8 +208,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VicnVpa2VyXEFhbnBhc3Nlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Gebruiker/CRUD.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VicnVpa2VyXENSVUQuY3NodG1s
+[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Gebruiker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VicnVpa2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Gebruiker/Toevoegen.cshtml]
@@ -236,8 +236,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2xhc1xBYW5wYXNzZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Klas/CRUD.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2xhc1xDUlVELmNzaHRtbA==
+[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Klas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2xhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Klas/Toevoegen.cshtml]
@@ -280,8 +280,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGllYmV6b2VrXEFyY2hpZWYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Studiebezoek/CRUD.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGllYmV6b2VrXENSVUQuY3NodG1s
+[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Studiebezoek/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGllYmV6b2VrXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Studiebezoek/Toevoegen.cshtml]
@@ -292,8 +292,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFrXEFhbnBhc3Nlbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Vak/CRUD.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFrXENSVUQuY3NodG1s
+[C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Vak/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFrXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/shawq/Documents/GraduaatJ2/MVC_Project/mvc-project-gti-gpr-d2-1-chatgpt-2-0/SchoolTech/SchoolTech/Views/Vak/Toevoegen.cshtml]
